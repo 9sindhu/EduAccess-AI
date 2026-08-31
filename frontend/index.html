@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>EduAccess AI</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="hero">
+
+    <div class="hero-content">
+
+        <h1>EduAccess AI</h1>
+
+        <p>
+            AI-powered accessibility for inclusive education
+        </p>
+
+        <span>
+            Make learning simpler, clearer and accessible for everyone.
+        </span>
+
+    </div>
+
+</header>
+
+
+<main class="container">
+
+    <!-- INPUT -->
+
+    <section class="card">
+
+        <h2>📚 Educational Content</h2>
+
+        <p class="description">
+            Paste your educational content below.
+        </p>
+
+        <textarea
+            id="inputText"
+            placeholder="Example: Photosynthesis is the process by which green plants convert light energy into chemical energy..."
+        ></textarea>
+
+        <div class="character-count">
+            <span id="characterCount">0</span> characters
+        </div>
+
+    </section>
+
+    <!-- ============================= -->
+<!-- DOCUMENT ACCESSIBILITY SECTION -->
+<!-- ============================= -->
+
+<section class="document-section">
+
+    <h2>📄 Upload Educational Document</h2>
+
+    <p>
+        Upload a PDF, DOCX or TXT file to make your
+        educational content more accessible.
+    </p>
+
+
+    <!-- File Upload -->
+
+    <div class="upload-box">
+
+        <label for="documentUpload">
+            📁 Choose Document
+        </label>
+
+        <input
+            type="file"
+            id="documentUpload"
+            accept=".pdf,.docx,.txt"
+            onchange="handleDocumentUpload(event)"
+        >
+
+    </div>
+
+
+    <!-- Status -->
+
+    <p id="documentStatus">
+        No document selected.
+    </p>
+
+ 
+
+ 
+
+
+<!-- Custom Document Language -->
+
+<input
+    type="text"
+    id="documentCustomLanguage"
+    placeholder="Enter language, e.g. French"
+    class="hidden"
+>
+
+
+    <!-- Extracted Text -->
+
+    <div class="document-output">
+
+        <h3>📖 Document Content</h3>
+
+        <textarea
+            id="documentExtractedText"
+            placeholder="Your document text will appear here..."
+            rows="15"
+        ></textarea>
+
+    </div>
+</section>
+
+    <!-- OPTIONS -->
+
+    <section class="card">
+
+        <h2>⚙️ Accessibility Options</h2>
+
+        <label for="mode">
+            Choose learning mode
+        </label>
+
+        <select id="mode">
+
+            <option value="simplify">
+                Simplify for a 10-Year-Old
+            </option>
+
+            <option value="dyslexia">
+                Dyslexia-Friendly
+            </option>
+
+            <option value="summary">
+                Smart Summary
+            </option>
+
+            <option value="example">
+                Explain with Example
+            </option>
+
+        </select>
+
+
+        <label for="language">
+            Output Language
+        </label>
+
+        <select id="language">
+
+            <option value="English">
+                English
+            </option>
+
+            <option value="Hindi">
+                Hindi
+            </option>
+
+            <option value="Telugu">
+                Telugu
+            </option>
+
+            <option value="Tamil">
+                Tamil
+            </option>
+
+            <option value="Bengali">
+                Bengali
+            </option>
+
+            <option value="Kannada">
+                Kannada
+            </option>
+
+            <option value="Malayalam">
+                Malayalam
+            </option>
+
+            <option value="Marathi">
+                Marathi
+            </option>
+
+            <option value="Gujarati">
+                Gujarati
+            </option>
+
+            <option value="Urdu">
+                Urdu
+            </option>
+
+            <option value="Other">
+                Other
+            </option>
+
+        </select>
+
+
+        <input
+            type="text"
+            id="customLanguage"
+            placeholder="Enter language, e.g. French"
+            class="hidden"
+        >
+
+
+        <button
+            id="generateButton"
+            onclick="generateText()">
+
+            ✨ Generate Accessible Version
+
+        </button>
+
+
+        <div
+            id="loading"
+            class="loading hidden">
+
+            <div class="spinner"></div>
+
+            <p>
+                AI is creating your accessible version...
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- OUTPUT -->
+
+     <!-- OUTPUT -->
+
+<section class="card output-card">
+
+    <!-- OUTPUT HEADER -->
+
+    <div class="output-header">
+
+        <h2>✨ Adaptive Learning Version</h2>
+
+        <!-- DOWNLOAD BUTTON -->
+
+        <div
+            id="downloadSection"
+            class="download-section hidden">
+
+            <button
+                id="downloadBtn"
+                class="download-btn">
+
+                ⬇ Download Output
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- GENERATED OUTPUT -->
+
+    <div
+        id="output"
+        class="output">
+
+        <p class="placeholder">
+            Your accessible content will appear here.
+        </p>
+
+    </div>
+
+
+    <!-- AUDIO CONTROLS -->
+
+    <div class="audio-controls generated-audio-controls">
+
+        <button
+            type="button"
+            onclick="listenToDocument()">
+
+            🔊 Listen
+
+        </button>
+
+
+        <button
+            type="button"
+            onclick="pauseSpeech()">
+
+            ⏸ Pause
+
+        </button>
+
+
+        <button
+            type="button"
+            onclick="resumeSpeech()">
+
+            ▶ Resume
+
+        </button>
+
+
+        <button
+            type="button"
+            onclick="stopSpeech()">
+
+            ⏹ Stop
+
+        </button>
+
+
+        <label for="speechSpeed">
+
+            Speed:
+
+        </label>
+
+
+        <select
+            id="speechSpeed"
+            onchange="changeSpeechSpeed(this.value)">
+
+            <option value="0.75">
+                0.75×
+            </option>
+
+            <option value="1" selected>
+                1×
+            </option>
+
+            <option value="1.25">
+                1.25×
+            </option>
+
+            <option value="1.5">
+                1.5×
+            </option>
+
+            <option value="2">
+                2×
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <!-- COPY BUTTON -->
+
+    <button
+        id="copyButton"
+        class="secondary-button"
+        onclick="copyOutput()">
+
+        📋 Copy Result
+
+    </button>
+
+</section>
+
+</main>
+
+
+<!-- ACCESSIBILITY SCORE -->
+
+<section class="impact-section">
+
+    <h2>📊 Accessibility Impact</h2>
+
+    <p>
+        Compare readability before and after AI processing.
+    </p>
+
+    <div class="scores">
+
+        <div class="score-card">
+
+            <span>Before</span>
+
+            <strong id="beforeScore">
+                --
+            </strong>
+
+            <small>
+                Readability Level
+            </small>
+
+        </div>
+
+
+        <div class="arrow">
+            →
+        </div>
+
+
+        <div class="score-card">
+
+            <span>After</span>
+
+            <strong id="afterScore">
+                --
+            </strong>
+
+            <small>
+                Readability Level
+            </small>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <p>
+        EduAccess AI • Empowering diverse learners through accessible technology
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+<!-- PDF.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+<!-- Mammoth.js for DOCX -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.8.0/mammoth.browser.min.js"></script>
+
+<!-- EduAccess AI accessibility modules -->
+<script src="textToSpeech.js"></script>
+<script src="documentProcessor.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,1365 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* =================================
+   GLOBAL
+   ================================= */
+
+body {
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    color: #1e293b;
+
+    line-height: 1.6;
+
+    /* Warm creamy background */
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(232, 62, 140, 0.06),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(91, 33, 182, 0.06),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(15, 157, 138, 0.05),
+            transparent 30%
+        ),
+        #fff8ed;
+
+    min-height: 100vh;
+}
+
+
+/* =================================
+   HERO
+   ================================= */
+
+.hero {
+
+    background:
+        linear-gradient(
+            135deg,
+            #4f46e5 0%,
+            #5b21b6 50%,
+            #0f9d8a 100%
+        );
+
+    color: white;
+
+    padding: 50px 20px;
+
+    text-align: center;
+
+    border-radius: 0 0 24px 24px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(91, 33, 182, 0.20);
+
+}
+
+
+.hero h1 {
+
+    font-size: 42px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.hero p {
+
+    font-size: 20px;
+
+    margin-bottom: 5px;
+
+}
+
+
+.hero span {
+
+    opacity: 0.92;
+
+}
+
+
+/* =================================
+   MAIN CONTAINER
+   ================================= */
+
+.container {
+
+    max-width: 1400px;
+
+    margin: auto;
+
+    padding: 30px 20px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 18px;
+
+}
+
+
+/* =================================
+   CARD
+   ================================= */
+
+.card {
+
+    background: rgba(255, 255, 255, 0.96);
+
+    padding: 25px;
+
+    border-radius: 18px;
+
+    border: 1px solid #f1e5d5;
+
+    box-shadow:
+        0 8px 24px
+        rgba(92, 67, 45, 0.10);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+}
+
+
+.card:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 14px 32px
+        rgba(92, 67, 45, 0.14);
+
+}
+
+
+.card h2 {
+
+    margin-bottom: 10px;
+
+    color: #5b21b6;
+
+}
+
+
+.description {
+
+    color: #64748b;
+
+    margin-bottom: 15px;
+
+}
+
+
+/* =================================
+   TEXTAREA
+   ================================= */
+
+textarea {
+
+    width: 100%;
+
+    height: 260px;
+
+    resize: vertical;
+
+    padding: 15px;
+
+    border: 2px solid #d9d3ca;
+
+    border-radius: 12px;
+
+    font-size: 16px;
+
+    outline: none;
+
+    background: #fffdf9;
+
+    color: #1e293b;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+textarea:focus {
+
+    border-color: #0f9d8a;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(15, 157, 138, 0.12);
+
+}
+
+
+.character-count {
+
+    text-align: right;
+
+    color: #64748b;
+
+    margin-top: 5px;
+
+    font-size: 13px;
+
+}
+
+
+/* =================================
+   FORM
+   ================================= */
+
+label {
+
+    display: block;
+
+    font-weight: bold;
+
+    margin-top: 15px;
+
+    margin-bottom: 7px;
+
+    color: #334155;
+
+}
+
+
+select,
+input {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border-radius: 9px;
+
+    border: 2px solid #ddd6ce;
+
+    font-size: 15px;
+
+    outline: none;
+
+    background: #fffdf9;
+
+    color: #1e293b;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+select:focus,
+input:focus {
+
+    border-color: #5b21b6;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(91, 33, 182, 0.10);
+
+}
+
+
+/* =================================
+   MAIN BUTTON
+   ================================= */
+
+button {
+
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e83e8c,
+            #5b21b6
+        );
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 12px
+        rgba(91, 33, 182, 0.22);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+
+}
+
+
+button:hover {
+
+    filter: brightness(1.05);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 18px
+        rgba(91, 33, 182, 0.25);
+
+}
+
+
+button:active {
+
+    transform: translateY(1px);
+
+}
+
+
+button:disabled {
+
+    opacity: 0.6;
+
+    cursor: not-allowed;
+
+}
+
+
+/* =================================
+   OUTPUT
+   ================================= */
+
+.output {
+
+    min-height: 260px;
+
+    padding: 18px;
+
+    background: #fffdf9;
+
+    border: 2px solid #d9d3ca;
+
+    border-radius: 12px;
+
+    white-space: pre-wrap;
+
+    overflow-y: auto;
+
+}
+
+
+.placeholder {
+
+    color: #94a3b8;
+
+}
+
+
+.secondary-button {
+
+    background:
+        linear-gradient(
+            90deg,
+            #0f9d8a,
+            #087f73
+        );
+
+    box-shadow:
+        0 5px 12px
+        rgba(15, 157, 138, 0.22);
+
+}
+
+
+/* =================================
+   HIDDEN
+   ================================= */
+
+.hidden {
+
+    display: none !important;
+
+}
+
+
+/* =================================
+   LOADING
+   ================================= */
+
+.loading {
+
+    text-align: center;
+
+    margin-top: 20px;
+
+    color: #5b21b6;
+
+}
+
+
+.spinner {
+
+    width: 35px;
+
+    height: 35px;
+
+    margin: auto;
+
+    border: 4px solid #eee7df;
+
+    border-top: 4px solid #5b21b6;
+
+    border-right: 4px solid #e83e8c;
+
+    border-radius: 50%;
+
+    animation: spin 1s linear infinite;
+
+}
+
+
+@keyframes spin {
+
+    100% {
+
+        transform: rotate(360deg);
+
+    }
+
+}
+
+
+/* =================================
+   IMPACT
+   ================================= */
+
+.impact-section {
+
+    max-width: 800px;
+
+    margin: 20px auto;
+
+    padding: 30px;
+
+    text-align: center;
+
+}
+
+
+.impact-section h2 {
+
+    color: #5b21b6;
+
+    margin-bottom: 5px;
+
+}
+
+
+.scores {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    margin-top: 25px;
+
+}
+
+
+.score-card {
+
+    background: #ffffff;
+
+    padding: 25px;
+
+    width: 180px;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 8px 22px
+        rgba(92, 67, 45, 0.09);
+
+    border-top: 5px solid #e83e8c;
+
+}
+
+
+.score-card span {
+
+    display: block;
+
+    font-weight: bold;
+
+}
+
+
+.score-card strong {
+
+    display: block;
+
+    font-size: 32px;
+
+    color: #5b21b6;
+
+    margin: 5px 0;
+
+}
+
+
+.score-card small {
+
+    color: #64748b;
+
+}
+
+
+.arrow {
+
+    font-size: 35px;
+
+    color: #0f9d8a;
+
+}
+
+
+/* =================================
+   FOOTER
+   ================================= */
+
+footer {
+
+    margin-top: 30px;
+
+    padding: 20px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            90deg,
+            #4f46e5,
+            #5b21b6,
+            #e83e8c
+        );
+
+    color: white;
+
+    border-radius: 20px 20px 0 0;
+
+}
+
+
+/* =================================
+   DOCUMENT ACCESSIBILITY SECTION
+   ================================= */
+
+.document-section {
+
+    margin-top: 0;
+
+    padding: 25px;
+
+    border-radius: 18px;
+
+    border: 1px solid #f1e5d5;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 8px 24px
+        rgba(92, 67, 45, 0.10);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+}
+
+
+.document-section:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 14px 32px
+        rgba(92, 67, 45, 0.14);
+
+}
+
+
+.document-section h2 {
+
+    margin-bottom: 10px;
+
+    color: #5b21b6;
+
+}
+
+
+.upload-box {
+
+    margin: 20px 0;
+
+}
+
+
+.upload-box label {
+
+    display: inline-block;
+
+    padding: 12px 20px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-weight: 600;
+
+}
+
+
+#documentUpload {
+
+    margin-left: 10px;
+
+}
+
+
+#documentStatus {
+
+    margin: 10px 0;
+
+    font-size: 14px;
+
+    color: #64748b;
+
+}
+
+
+/* =================================
+   DOCUMENT OUTPUT
+   ================================= */
+
+.document-output {
+
+    margin-top: 20px;
+
+}
+
+
+#documentExtractedText {
+
+    width: 100%;
+
+    min-height: 300px;
+
+    padding: 15px;
+
+    box-sizing: border-box;
+
+    resize: vertical;
+
+    border-radius: 12px;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+
+    border: 2px solid #d9d3ca;
+
+    background: #fffdf9;
+
+    color: #1e293b;
+
+}
+
+
+#documentExtractedText:focus {
+
+    border-color: #5b21b6;
+
+    outline: none;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(91, 33, 182, 0.10);
+
+}
+
+
+/* =================================
+   AUDIO CONTROLS
+   ================================= */
+
+.audio-controls {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: center;
+
+    gap: 22px;
+
+    margin-top: 15px;
+
+    padding: 12px 15px;
+
+    background: #faf8f5;
+
+    border-radius: 14px;
+
+    border: 1px solid #eee7df;
+
+}
+
+
+/* Circular buttons */
+
+.audio-controls button {
+
+    position: relative;
+
+    width: 48px;
+
+    height: 48px;
+
+    min-width: 48px;
+
+    margin: 0;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: white;
+
+    font-size: 0;
+
+    cursor: pointer;
+
+    box-shadow: none;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+/* Audio icons */
+
+.audio-controls button::before {
+
+    font-size: 20px;
+
+    line-height: 1;
+
+}
+
+
+/* Listen */
+
+.audio-controls button:nth-child(1) {
+
+    background: #0f9d8a;
+
+}
+
+
+.audio-controls button:nth-child(1)::before {
+
+    content: "🔊";
+
+}
+
+
+/* Pause */
+
+.audio-controls button:nth-child(2) {
+
+    background: #f59e0b;
+
+}
+
+
+.audio-controls button:nth-child(2)::before {
+
+    content: "⏸";
+
+}
+
+
+/* Resume */
+
+.audio-controls button:nth-child(3) {
+
+    background: #4f46e5;
+
+}
+
+
+.audio-controls button:nth-child(3)::before {
+
+    content: "▶";
+
+}
+
+
+/* Stop */
+
+.audio-controls button:nth-child(4) {
+
+    background: #e83e8c;
+
+}
+
+
+.audio-controls button:nth-child(4)::before {
+
+    content: "■";
+
+}
+
+
+/* Audio labels */
+
+.audio-controls button::after {
+
+    position: absolute;
+
+    top: 54px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    color: #334155;
+
+    white-space: nowrap;
+
+}
+
+
+/* Individual labels */
+
+.audio-controls button:nth-child(1)::after {
+
+    content: "Listen";
+
+}
+
+
+.audio-controls button:nth-child(2)::after {
+
+    content: "Pause";
+
+}
+
+
+.audio-controls button:nth-child(3)::after {
+
+    content: "Resume";
+
+}
+
+
+.audio-controls button:nth-child(4)::after {
+
+    content: "Stop";
+
+}
+
+
+/* Hover */
+
+.audio-controls button:hover {
+
+    transform: translateY(-3px) scale(1.05);
+
+    box-shadow:
+        0 6px 14px
+        rgba(0, 0, 0, 0.16);
+
+}
+
+
+/* Speed */
+
+.audio-controls select {
+
+    width: 82px;
+
+    min-width: 82px;
+
+    margin: 0;
+
+    padding: 9px 10px;
+
+    border-radius: 20px;
+
+    border: 2px solid #d8d0c7;
+
+    background: #ffffff;
+
+    color: #334155;
+
+    font-size: 14px;
+
+    align-self: center;
+
+}
+
+
+/* Speed label */
+
+.audio-controls::before {
+
+    content: "Speed:";
+
+    align-self: center;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color: #334155;
+
+    margin-left: 4px;
+
+    order: 5;
+
+}
+
+
+/* Move speed selector after label */
+
+.audio-controls select {
+
+    order: 6;
+
+}
+
+
+/* ========================================
+   DOWNLOAD OUTPUT SECTION
+   ======================================== */
+
+.download-section {
+
+    margin-top: 20px;
+
+    animation:
+        downloadFadeIn 0.4s ease;
+
+}
+
+
+.download-content {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 20px 24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffdf9,
+            #f5efff
+        );
+
+    border: 1px solid #ded2f5;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 6px 20px
+        rgba(92, 67, 45, 0.08);
+
+}
+
+
+.download-icon {
+
+    width: 50px;
+
+    height: 50px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #eee7ff;
+
+    color: #5b21b6;
+
+    border-radius: 12px;
+
+    font-size: 24px;
+
+}
+
+
+.download-text {
+
+    flex: 1;
+
+}
+
+
+.download-text h3 {
+
+    margin: 0 0 5px;
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    color: #1e293b;
+
+}
+
+
+.download-text p {
+
+    margin: 0;
+
+    font-size: 14px;
+
+    color: #64748b;
+
+}
+
+
+.download-btn {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 12px 20px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #5b21b6,
+            #e83e8c
+        );
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.download-btn:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 6px 15px
+        rgba(91, 33, 182, 0.25);
+
+}
+
+
+.download-btn:active {
+
+    transform: translateY(0);
+
+}
+
+
+.download-btn span {
+
+    font-size: 18px;
+
+}
+
+
+@keyframes downloadFadeIn {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(10px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+/* ========================================
+   OUTPUT HEADER
+   ======================================== */
+
+.output-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.output-header h2 {
+
+    margin: 0;
+
+}
+
+
+.download-section {
+
+    margin: 0;
+
+}
+
+
+.download-btn {
+
+    width: auto;
+
+    margin: 0;
+
+    padding: 10px 18px;
+
+}
+
+
+/* =================================
+   MOBILE
+   ================================= */
+
+@media (max-width: 700px) {
+
+    .container {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .hero h1 {
+
+        font-size: 32px;
+
+    }
+
+
+    .scores {
+
+        flex-direction: column;
+
+    }
+
+
+    .arrow {
+
+        transform: rotate(90deg);
+
+    }
+
+
+    .audio-controls {
+
+        gap: 14px;
+
+        padding: 12px 8px;
+
+    }
+
+
+    .audio-controls button {
+
+        width: 44px;
+
+        height: 44px;
+
+        min-width: 44px;
+
+    }
+
+
+    .audio-controls::before {
+
+        margin-left: 0;
+
+    }
+
+
+    .output-header {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+    }
+
+
+    .download-btn {
+
+        width: 100%;
+
+    }
+
+}
+
+/* ========================================
+   AI GENERATION WAITING MESSAGE
+   Added without changing existing styles
+======================================== */
+
+.ai-wait-message {
+    margin-top: 12px;
+    padding: 14px 18px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(120, 80, 150, 0.2);
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.6;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    transition: opacity 0.3s ease;
+}
+
+.ai-wait-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.ai-wait-text {
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+.ai-wait-dots {
+    display: inline-block;
+    min-width: 24px;
+    text-align: left;
+}
+
+.ai-wait-progress {
+    margin-top: 10px;
+    height: 5px;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #eeeeee;
+}
+
+.ai-wait-progress-bar {
+    height: 100%;
+    width: 30%;
+    border-radius: 10px;
+    animation: eduAccessProgress 2s ease-in-out infinite;
+}
+
+@keyframes eduAccessProgress {
+
+    0% {
+        transform: translateX(-120%);
+    }
+
+    50% {
+        transform: translateX(120%);
+    }
+
+    100% {
+        transform: translateX(350%);
+    }
+
+}
